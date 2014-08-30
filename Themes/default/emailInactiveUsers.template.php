@@ -73,25 +73,27 @@ function template_user_list()
 			</thead>
 			<tbody>';
 
+		$alternate = true;	
+			
 		foreach ($context['toMark'] as $user)
 			echo '
-				<tr  id="letterm">
-					<td class="windowbg2">
+				<tr class="',(($alternate = !$alternate)?'windowbg':'windowbg2'),'">
+					<td>
 						', $user['posts'] ,'
 					</td>
-					<td class="windowbg2">
+					<td>
 						<a href="', $scripturl ,'?action=profile;u=', $user['id'] ,'" target="_blank">', $user['name'] ,'</a>
 					</td>
-					<td class="windowbg lefttext">
+					<td>
 						', $user['last_login'] ,'
 					</td>
-					<td class="windowbg2">
+					<td>
 						', $user['mail_sent'] ,'
 					</td>
-					<td class="windowbg2">
+					<td>
 						<input type="checkbox" name="dont[]" class="input_check" value="', $user['id'] ,'">
 					</td>
-					<td class="windowbg2">
+					<td>
 						<input type="checkbox" name="user[]" class="input_check" value="', $user['id'] ,'">
 					</td>
 				</tr>';
